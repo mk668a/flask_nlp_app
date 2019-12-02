@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TENSE ANALYZER</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="title">
+            <h1>TENSE ANALYZER</h1>
+        </div>
+
+        <div id="analyze">
+            <h2>Please put the sentence and press the Enter key</h2>
+            <form id="form" action="/input" method="post" name="formStr">
+                <input id="textField" class="input" type="text" name="str" value="{{value_str}}">
+                <input class="submit" type="submit" name="" value="送信">
+            </form>
+        </div>
+
+        <div class="result">
+            <h2>Result </h2>
+            <p>{{value_str}}</p>
+        </div>
+    </div>
+</body>
+
+</html>
