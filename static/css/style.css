@@ -1,0 +1,198 @@
+/* css reset */
+
+body {
+    font-family: 'Inconsolata', monospace;
+    background-color: #fdfeff;
+    display: flex;
+    padding: 0 1rem;
+}
+
+h1, h2, h3 {
+    color: rgb(70, 70, 70);
+    margin-bottom: 0;
+}
+
+h1 {
+    font-size: 4vw;
+}
+
+h2 {
+    font-size: 3vw;
+}
+
+h3 {
+    font-size: 2vw;
+}
+
+p {
+    margin: 0;
+    color: dimgrey;
+    font-size: 1.6vw;
+    font-weight: bold;
+}
+
+ul, li {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    font-size: 1.6vw;
+    font-weight: bold;
+    color: dimgrey;
+}
+
+li::before {
+    content: "・";
+}
+
+input {
+    background: white;
+}
+
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+    -webkit-text-fill-color: rgb(70, 70, 70);
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    box-shadow: 0 0 0px 1000px white inset;
+}
+
+input:focus {
+    outline: 0;
+}
+
+button {
+    color: dimgrey;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 0;
+}
+
+/*  */
+
+/* container */
+
+#container {
+    margin: auto;
+    width: 80vw;
+}
+
+@media screen and (max-width:768px) {
+    #container {
+        width: 90vw;
+    }
+}
+
+#container>div {
+    margin-bottom: 2rem;
+}
+
+/*  */
+
+/* nlp */
+
+#nlp {
+    /* border-radius: 5px; */
+    /* background: #34456314; */
+}
+
+#form {
+    margin: 0.5rem 0;
+}
+
+#form .input {
+    height: 25px;
+    width: calc(100% - 15px);
+    padding: 5px;
+    margin-left: 1px;
+    background: transparent;
+    font-size: 1.8vw;
+    border: 2px solid rgb(70, 70, 70);
+}
+
+#form .submit {
+    display: none;
+}
+
+/* 
+.result-title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 25px 0;
+}
+
+.result-title h2 {
+    margin: 0;
+}
+
+.result-title #reset {
+    display: flex;
+} */
+
+.result-content {
+    margin: 0.5rem 0;
+    padding: 5px 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.result-content #reset {
+    padding: 5px 0;
+}
+
+.result-content #reset button {
+    margin: auto 0 0 0;
+    padding: 5px 10px;
+    display: block;
+    border: 1px solid #fdfeff;
+    background: #fdfeff;
+    border: 2px solid dimgray;
+    border-radius: 5px;
+    font-size: 1.6vw;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.result-content #reset button:hover {
+    background: dimgrey;
+    color: #fdfeff;
+}
+
+.result-content .items {
+    overflow: scroll;
+    max-height: 50vh;
+}
+
+.result-content .items .item {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #34456314;
+    margin: 1rem 0;
+}
+
+.result-content p {
+    padding: 5px 0;
+    font-size: 1.8vw;
+}
+
+.result-content .tense {
+    background: #fdfeff;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+/*  */
+
+#task li {
+    color: aliceblue;
+    padding: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    background: #344563;
+}

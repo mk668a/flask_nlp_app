@@ -3,10 +3,27 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}">
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+    <!--  -->
     <title>TENSE ANALYZER</title>
 </head>
+
 
 <body>
     <div id="container">
@@ -15,7 +32,7 @@
         </div>
 
         <div id="analyze">
-            <h2>Please put the sentence and press the Enter key</h2>
+            <h2>英文を入力してEnterキーを押してください</h2>
             <form id="form" action="/input" method="post" name="formStr">
                 <input id="textField" class="input" type="text" name="str" value="{{value_str}}">
                 <input class="submit" type="submit" name="" value="送信">
@@ -23,8 +40,39 @@
         </div>
 
         <div class="result">
-            <h2>Result </h2>
-            <p>{{value_str}}</p>
+            <h2>結果</h2>
+            <!-- result配列の長さが0より大きい場合表示 -->
+            {% if result|length > 0 %}
+            <div class="result-content">
+                <form id="reset" action="/reset" method="post">
+                    <button name="reset_result">結果をリセットする</button>
+                </form>
+                <div class="items">
+                    <!-- resultの中身ををループで表示（ここではreverseで逆順にしています） -->
+                    {% for r in result|reverse %}
+
+                    <!-- r[0](文章)が存在するなら表示する -->
+                    {% if r[0] %}
+
+                    <div class="item">
+                        <p class="value_str">{{ r[0] }}</p>
+
+                        <!-- r[1](時制)が存在するなら表示する -->
+                        {% if r[1] %}
+                        <p class="tense">{{ r[1] }}</p>
+                        {% endif %}
+                        <!--  -->
+                    </div>
+
+                    {% endif %}
+                    <!--  -->
+
+                    {% endfor %}
+                    <!--  -->
+                </div>
+            </div>
+            {% endif %}
+            <!--  -->
         </div>
     </div>
 </body>
