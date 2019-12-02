@@ -1,12 +1,10 @@
 from flask import *
 from flask_socketio import SocketIO
-# analyzer.pyをimport
 import analyzer
 
 app = Flask(__name__)
 socketio = SocketIO(app, async_mode=None)
 
-# [削除]value_str = ""
 result = []
 
 
@@ -53,4 +51,4 @@ def get_form():
 
 if __name__ == "__main__":
     # debugはデプロイ時にFalseにする
-    socketio.run(app, host='127.0.0.1', port=5000, debug=True)
+    socketio.run(app, host='127.0.0.1', port=5000, debug=False)
